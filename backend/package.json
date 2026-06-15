@@ -1,0 +1,28 @@
+{
+  "name": "omnimess_the_smart_hostel_network",
+  "version": "1.0.0",
+  "description": "A full-stack hostel management platform leveraging facial recognition to automate attendance, prevent rebate misuse, and improve mess operations.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+      "start": "node src/server.js",
+      "dev": "nodemon src/server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kritikayadav06/OmniMess_The_Smart_Hostel_Network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kritikayadav06/OmniMess_The_Smart_Hostel_Network/issues"
+  },
+  "homepage": "https://github.com/kritikayadav06/OmniMess_The_Smart_Hostel_Network#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
