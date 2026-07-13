@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const hostelSchema = new mongoose.Schema(
@@ -8,18 +9,14 @@ const hostelSchema = new mongoose.Schema(
         unique:true
     },
 
-    type:{
-        type:String,
-        enum:["HOME","GUEST"],
-        required:true
-    },
-
     capacity:{
         type:Number,
         required:true
     }
 },
-{timestamps:true}
+{
+    timestamps:true
+}
 );
 
 module.exports = mongoose.model("Hostel", hostelSchema);
