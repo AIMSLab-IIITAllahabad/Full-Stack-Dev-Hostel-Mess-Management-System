@@ -410,16 +410,19 @@ Each model represents an independent domain and follows a modular architecture.
 
 ```mermaid
 sequenceDiagram
-participant Student
-participant API
-participant Database
+    participant Student
+    participant Backend
+    participant Database
 
-Student->>API: Login
-API->>Database: Verify Credentials
-Database-->>API: User Found
-API->>API: Generate JWT
-API-->>Student: JWT Token
-Student->>API: Authenticated Requests
+    Student->>Backend: Login Request
+    Backend->>Database: Verify Credentials
+    Database-->>Backend: User Found
+    Backend->>Backend: Generate JWT Token
+    Backend-->>Student: Return JWT Token
+
+    Student->>Backend: API Request + JWT
+    Backend->>Backend: Validate Token
+    Backend-->>Student: Authorized Response
 ```
 
 ---
@@ -427,30 +430,27 @@ Student->>API: Authenticated Requests
 # 🍽 Meal Subscription Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
 
 A[Student Login]
--->B[Select 15-Day Plan]
+-->B[Select 15-Day Subscription]
 
 B-->C[Choose Home Hostel]
-
 B-->D[Choose Guest Hostel]
-
 B-->E[Apply Rebate]
 
 C-->F[Save Subscription]
-
 D-->F
-
 E-->F
 
-F-->G[Kitchen Planning]
+F-->G[Update Kitchen Meal Count]
 
 G-->H[Meal Prepared]
 
-H-->I[Attendance Verification]
-```
+H-->I[Face Recognition at Kiosk]
 
+I-->J[Attendance Recorded]
+```
 ---
 
 # 🤖 Facial Recognition Flow
