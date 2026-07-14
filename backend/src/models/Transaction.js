@@ -10,7 +10,7 @@ const transactionSchema = new mongoose.Schema(
 
     type: {
       type: String,
-      enum: ["TOPUP", "MEAL_CHARGE", "REBATE_DAY"],
+      enum: ["TOPUP", "MEAL_CHARGE", "REBATE_DAY", "REBATE_REFUND"],
       required: true,
     },
 

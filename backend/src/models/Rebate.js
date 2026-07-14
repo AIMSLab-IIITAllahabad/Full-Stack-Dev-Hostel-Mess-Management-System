@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 
 const rebateSchema = new mongoose.Schema(
@@ -24,14 +23,22 @@ const rebateSchema = new mongoose.Schema(
       enum: ["APPROVED", "CANCELLED"],
       default: "APPROVED",
     },
+
+    // Amount charged to the wallet when this rebate was created
+    // (flat Rs 54). Refunded in full on cancellation. Settlement
+    // SKIPS days that have this set — that's what prevents the
+    // double charge.
+    prepaidAmount: {
+      type: Number,
+      default: null,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-// FIX: safety net against duplicate rebates for the same student + date,
-// even if the application-level check is bypassed (e.g. race condition)
+// One rebate per student per date
 rebateSchema.index({ studentId: 1, date: 1 }, { unique: true });
 
 module.exports = mongoose.model("Rebate", rebateSchema);
