@@ -457,36 +457,17 @@ I-->J[Attendance Recorded]
 
 ```mermaid
 flowchart TD
-
-Camera
-
--->YOLO
-
-YOLO
-
--->Face Detection
-
-Face Detection
-
--->Face Embedding
-
-Face Embedding
-
--->Backend API
-
-Backend API
-
--->Subscription Check
-
-Subscription Check
-
--->Attendance
-
-Attendance
-
--->Access Granted
+    A[Student Arrives] --> B[Camera Captures Image]
+    B --> C[YOLO Person Detection]
+    C --> D[Face Detection]
+    D --> E[Generate Face Embedding]
+    E --> F[Send Embedding to Backend]
+    F --> G[Identify Student]
+    G --> H{Subscription Active}
+    H -->|Yes| I[Mark Attendance]
+    I --> J[Access Granted]
+    H -->|No| K[Access Denied]
 ```
-
 ---
 
 # 📡 REST API Flow
