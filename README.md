@@ -474,30 +474,14 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-
-Client
-
--->Authentication API
-
-Authentication API
-
--->JWT
-
-JWT
-
--->Protected APIs
-
-Protected APIs
-
--->Controllers
-
-Controllers
-
--->Services
-
-Services
-
--->MongoDB
+    A[Flutter App] --> B[REST API]
+    B --> C[JWT Middleware]
+    C --> D[Express Routes]
+    D --> E[Controllers]
+    E --> F[MongoDB]
+    F --> E
+    E --> D
+    D --> A
 ```
 
 ---
