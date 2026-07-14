@@ -627,4 +627,8 @@ See the `LICENSE` file for details.
 
 **Building technology that serves people, reduces waste, and creates a smarter future.**
 
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 7f635b0c55523e25eff308a2e3af224bbd15698f
